@@ -12,26 +12,28 @@ import java.util.*;
  */
 public class BaseDeDados extends Observavel{
     
-    private int valorA;
-    private int valorB;
-    private int valorC;
+    private float valorA;
+    private float valorB;
+    private float valorC;
     
-    List<Observador> observadores = new ArrayList();
-
-    public BaseDeDados(int valorA, int valorB, int valorC) {
-        this.valorA = valorA;
-        this.valorB = valorB;
-        this.valorC = valorC;
+    private List<Observador> observadores = new ArrayList();
+    
+    @Override
+    public void atualizar(float a, float b, float c) {
+        this.valorA = a;
+        this.valorB = b;
+        this.valorC = c;
+        
+        notificar();
     }
     
-
     @Override
-    public void notificar() {
+    public void notificar(){
         for (Observador observador : observadores) {
             observador.atualizar(valorA, valorB, valorC);
         }
     }
-
+    
     @Override
     public void removerObservador(Observador obs) {
         
@@ -45,7 +47,7 @@ public class BaseDeDados extends Observavel{
         
         if(!observadores.contains(obs)){
            observadores.add(obs);
-           notificar();
+           obs.atualizar(valorA, valorB, valorC);
         }
     }
     

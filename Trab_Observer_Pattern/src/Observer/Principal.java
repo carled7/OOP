@@ -20,16 +20,22 @@ public class Principal {
         Observador porcentagem = new Porcentagem();
         Observador grafico = new Grafico();
         
-        Observavel baseDeDados = new BaseDeDados(20, 16, 4);
-        
+        Observavel baseDeDados = new BaseDeDados();
+                
         baseDeDados.adicionarObservador(tabela);
-        tabela.imprimirDados();
+        baseDeDados.adicionarObservador(porcentagem);
+        baseDeDados.adicionarObservador(grafico);
+
+        
+        baseDeDados.atualizar(20, 10, 5);
+        
+        baseDeDados.removerObservador(porcentagem);
+        
+        baseDeDados.atualizar(7, 2, 0);
         
         baseDeDados.adicionarObservador(porcentagem);
-        porcentagem.imprimirDados();
-        
-        baseDeDados.adicionarObservador(grafico);
-        grafico.imprimirDados();
+       
+
     }
     
 }

@@ -26,10 +26,15 @@ public abstract class Observador {
         return valorC;
     }
     
-    public void atualizar(float A, float B, float C) {
-        this.valorA = A;
-        this.valorB = B;
-        this.valorC = C;
+    public void atualizar(float a, float b, float c) {
+        this.valorA = a;
+        this.valorB = b;
+        this.valorC = c;
+        if(a == 0 && b == 0 && c== 0){
+            
+        }else{
+            imprimirDados();
+        }
     }
     
     public abstract void imprimirDados();

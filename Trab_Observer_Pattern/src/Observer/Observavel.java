@@ -11,6 +11,7 @@ package Observer;
  */
 public abstract class Observavel{
         
+    public abstract void atualizar(float a, float b, float c);
     public abstract void notificar();
     public abstract void removerObservador (Observador obs);
     public abstract void adicionarObservador (Observador obs);
